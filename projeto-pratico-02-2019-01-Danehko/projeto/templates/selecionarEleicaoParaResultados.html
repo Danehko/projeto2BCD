@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Selecione uma eleição:</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Eleição</th>
+        <th>Administrador</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for aux in eleicoes %}
+        <tr>
+          <td>{{ aux.idEleicao }}</td>
+          <td><a href='/selecionarPerguntaParaResultado?idEleicao={{ aux.idEleicao }}'>{{ aux.eleicao }}</a></td>
+          <td>{{ aux.login }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+{% endblock %}

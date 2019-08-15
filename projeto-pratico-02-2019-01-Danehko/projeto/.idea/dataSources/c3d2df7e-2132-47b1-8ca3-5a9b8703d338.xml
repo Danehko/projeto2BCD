@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="lab02">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="Eleicao"/>
+    <table id="7" parent="2" name="Eleitor"/>
+    <table id="8" parent="2" name="Pergunta"/>
+    <table id="9" parent="2" name="Pessoa"/>
+    <table id="10" parent="2" name="Resposta"/>
+    <table id="11" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="12" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <column id="13" parent="6" name="idEleicao">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="6" name="eleicao">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="6" name="dataInicio">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="6" name="dataFinal">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="6" name="statusEleicao">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="6" name="apuracao">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="6" name="login">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="20" parent="6">
+      <ColNames>idEleicao</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="6">
+      <ColNames>login</ColNames>
+      <RefTableName>Pessoa</RefTableName>
+      <RefColNames>login</RefColNames>
+    </foreign-key>
+    <column id="22" parent="7" name="statusVoto">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="7" name="idEleicao">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="7" name="login">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="25" parent="7" name="sqlite_autoindex_Eleitor_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idEleicao
+login</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="7">
+      <ColNames>idEleicao
+login</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Eleitor_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="27" parent="7">
+      <ColNames>idEleicao</ColNames>
+      <RefTableName>Eleicao</RefTableName>
+      <RefColNames>idEleicao</RefColNames>
+    </foreign-key>
+    <foreign-key id="28" parent="7">
+      <ColNames>login</ColNames>
+      <RefTableName>Pessoa</RefTableName>
+      <RefColNames>login</RefColNames>
+    </foreign-key>
+    <column id="29" parent="8" name="idPergunta">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="8" name="pergunta">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="8" name="numMinResposta">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="8" name="numMaxResposta">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="8" name="idEleicao">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="34" parent="8">
+      <ColNames>idPergunta</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="8">
+      <ColNames>idEleicao</ColNames>
+      <RefTableName>Eleicao</RefTableName>
+      <RefColNames>idEleicao</RefColNames>
+    </foreign-key>
+    <column id="36" parent="9" name="login">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="9" name="nomePessoa">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="9" name="senha">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="9" name="tipo">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="40" parent="9" name="sqlite_autoindex_Pessoa_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>login</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="9">
+      <ColNames>login</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Pessoa_1</UnderlyingIndexName>
+    </key>
+    <column id="42" parent="10" name="idResposta">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="10" name="resposta">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="10" name="contadorResposta">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="10" name="idPergunta">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="46" parent="10">
+      <ColNames>idResposta</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="10">
+      <ColNames>idPergunta</ColNames>
+      <RefTableName>Pergunta</RefTableName>
+      <RefColNames>idPergunta</RefColNames>
+    </foreign-key>
+    <column id="48" parent="11" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="49" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="50" parent="11" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="51" parent="11" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="52" parent="11" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="53" parent="12" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="54" parent="12" name="seq">
+      <Position>2</Position>
+    </column>
+  </database-model>
+</dataSource>

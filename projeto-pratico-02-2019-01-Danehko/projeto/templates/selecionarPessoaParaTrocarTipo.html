@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Selecione uma eleição:</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Pessoa</th>
+        <th>Tipo</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for aux in pessoas %}
+        <tr>
+          <td><a href='/trocarTipo?login={{ aux.login }}'>{{ aux.nomePessoa }}</a></td>
+          <td>{% if aux.tipo==0 %}Eleitor{% else %}Administrador{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+{% endblock %}

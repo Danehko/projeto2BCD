@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Exibindo Resultado da Eleição:</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Resposta</th>
+        <th>Total de Votos</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for aux in resultados %}
+        <tr>
+          <td>{{ aux.resposta }}</td>
+          <td>{{ aux.contadorResposta }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+    <p><a href="{{ url_for('inicio') }}">Página inicial</a>
+    <hr>
+    <p><a onclick="javascript: history.go(-1)">Voltar</a>
+    <hr>
+    </div>
+  </div>
+{% endblock %}
